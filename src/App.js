@@ -1,15 +1,17 @@
-import SideBar from './menu'
-
+import {BrowserRouter, Route, Switch} from 'react-router-dom'
+import Inicio from './views/inicio';
+import Login from './views/login';
+import NoFound from './views/noFound';
 function App() {
   return (
-    <div id="App">
-      <SideBar pageWrapId={"page-wrap"} outerContainerId={"App"} />
+    <BrowserRouter>
+      <Switch>
+        <Route exact path="/inicio" component={Inicio}/>
+        <Route exact path="/login" component={Login}/>
+        <Route component={NoFound} />
+      </Switch>
+    </BrowserRouter>
 
-      <div id="page-wrap">
-        <h1>Cool Restaurant 🍔🍕</h1>
-        <h2>Check out our offerings in the sidebar!</h2>
-      </div>
-    </div>
   );
 }
 
